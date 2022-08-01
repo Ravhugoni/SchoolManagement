@@ -1,0 +1,87 @@
+<div class="modal-content">
+    <div class="container">
+        <div class="modal-header" id="kt_modal_create_api_key_header">
+  
+            <p><b>Add new Quize</b></p><br>
+      
+            <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+        
+              <span class="svg-icon svg-icon-1" (click)="close()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)"
+                    fill="currentColor"></rect>
+                  <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor">
+                  </rect>
+                </svg>
+              </span>
+        
+            </div> 
+          </div>
+      
+          <form id="kt_modal_create_api_key_form" [formGroup]="productForm" (ngSubmit)="onSubmit()" class="form fv-plugins-bootstrap5 fv-plugins-framework">      
+                
+            <div class="container">
+                <div class="row">  
+                    <label for="name">Quize Name:</label>  
+                    <input type="text" id="name" name="name" formControlName="name" class="form-control">  
+                </div>
+                <div class="row">
+                    <div class="col-lg-8">  
+                        <label for="name">Subject:</label>  
+                        <input type="text" id="name" name="name" formControlName="name" class="form-control">  
+                    </div> 
+                    <div class="col-lg-4">  
+                        <label for="name">Grade:</label>  
+                        <input type="text" id="name" name="name" formControlName="name" class="form-control">  
+                    </div>                      
+                </div>
+            </div><br>
+
+                  <div class="row">
+                    <div class="col-lg-12 col-xl-12">
+                      <div class="table-responsive">
+                        <table formArrayName="quantities" class="table m-0" datatable [dtOptions]="dtOptions">  
+                            <tr>  
+                                <th colspan="2">Add Multiple Questions:</th>  
+                                <th width="150px"><button type="button" (click)="addQuantity()" class="btn btn-primary btn-sm">Add More</button></th>  
+                            </tr>  
+                            <tr *ngFor="let quantity of quantities().controls; let i=index" [formGroupName]="i">  
+                            <td>  
+                                Question :  
+                                <textarea type="text" formControlName="qty" class="form-control"></textarea> 
+                            </td>  
+                            <td>  
+                                Correct Answers:  
+                                <input type="text" formControlName="price" class="form-control">
+                            </td> 
+                            <td>  
+                                Score:  
+                                <input type="text" formControlName="price" class="form-control">
+                            </td> 
+                            <td>  <br>
+                                <button (click)="removeQuantity(i)" class="btn btn-danger btn-sm">Remove</button>  
+                            </td>  
+                            </tr>  
+                        </table>  
+                      </div>
+                    </div>
+                  </div>
+        
+                <br/>  
+                <!-- {{this.productForm.value | json}}  -->
+          
+              <div class="modal-footer flex-center">
+          
+                <button type="reset" id="kt_modal_create_api_key_cancel" class="btn btn-light me-3 btn-sm">Clear answers</button>
+          
+                <button type="submit" id="kt_modal_create_api_key_submit" class="btn btn-primary btn-sm">
+                  <span class="indicator-label">Submit</span>
+                  <!-- <span class="indicator-progress">Please wait...
+                    <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span> -->
+                </button>
+          
+              </div>
+            <div></div>
+        </form>      
+    </div>
+</div>

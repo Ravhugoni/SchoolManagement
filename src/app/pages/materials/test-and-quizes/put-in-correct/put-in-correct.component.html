@@ -1,0 +1,349 @@
+<!--profile cover end-->
+<div class="row">
+    <div class="col-lg-12">
+      <div class="md-tabs">
+        <ngb-tabset>
+
+<!-- ============Personal Infomation tab=========== -->
+          <ngb-tab title="Put In Correct Order Quizes">
+            <ng-template ngbTabContent>
+              <div [@fadeInOutTranslate] class="m-t-15">
+                <!-- personal card start -->
+                <div class="card">
+                  <div class="card-header">
+                    <!-- <h5 class="card-header-text">About Me</h5> -->
+                    <button id="edit-btn" type="button" class="btn btn-sm btn-primary waves-effect waves-light f-right" 
+                    (click)="open_add_modal()">
+                      <i class="icofont {{ editProfileIcon }}"></i>Add Quize
+                    </button>
+                  </div>
+                  <div class="card-body">
+                    <div class="view-info" *ngIf="editProfile">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <div class="general-info">
+                            <div class="row">
+                              <div class="col-lg-12 col-xl-12">
+                                <div class="table-responsive">
+                                  <table class="table m-0" datatable [dtOptions]="dtOptions">
+                                    <thead>
+                                        <tr>
+                                          <th>#</th>
+                                          <th>Quize Name</th>
+                                          <th>Subject</th>
+                                          <th>Grade</th>
+                                          <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                    <tbody> 
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>How to cultivate</td>
+                                        <td>Angricaltural Sciences</td>
+                                        <td>Grade 10</td>
+                                        <td>
+                                            <a type="button" (click)="open_missing_word_modal()" class="btn-sm btn-primary">
+                                                <i class="icofont {{ editProfileIcon }}"></i>Take Quize
+                                            </a>
+                                        </td>
+                                    </tr>                               
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                              <!-- end of table col-lg-12 -->
+                            </div>
+                            <!-- end of row -->
+                          </div>
+                          <!-- end of general info -->
+                        </div>
+                        <!-- end of col-lg-12 -->
+                      </div>
+                      <!-- end of row -->
+                    </div>
+                    <!-- end of view-info -->
+                    <div class="edit-info" *ngIf="!editProfile">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <div class="general-info">
+                            <div class="row">
+                              <div class="col-lg-6">
+                                <div class="table-responsive">
+                                  <table class="table">
+                                    <tbody>
+                                    <tr>
+                                      <td>
+                                        <div class="input-group">
+                                          <span class="input-group-prepend"><label class="input-group-text"><i class="icofont icofont-user"></i></label></span>
+                                          <input type="text" class="form-control" placeholder="Full Name" value="Josephine Villa">
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <div class="form-radio">
+                                          <div class="group-add-on">
+                                            <div class="radio radiofill radio-inline">
+                                              <label>
+                                                <input type="radio" name="radio"><i class="helper"></i> Male
+                                              </label>
+                                            </div>
+                                            <div class="radio radiofill radio-inline">
+                                              <label>
+                                                <input type="radio" name="radio" checked><i class="helper"></i> Female
+                                              </label>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <input id="dropper-default" class="form-control" type="text" value="October 25th, 1990" placeholder="Select Your Birth Date" />
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <select id="hello-single" class="form-control">
+                                          <option value="">---- Marital Status ----</option>
+                                          <option value="married">Married</option>
+                                          <option value="single" selected>Single</option>
+                                          <option value="unmarried">Unmarried</option>
+                                        </select>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <div class="input-group">
+                                          <span class="input-group-prepend"><label class="input-group-text"><i class="icofont icofont-location-pin"></i></label></span>
+                                          <input type="text" class="form-control" placeholder="Address" value="New York, USA">
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                              <!-- end of table col-lg-6 -->
+                              <div class="col-lg-6">
+                                <div class="table-responsive">
+                                  <table class="table">
+                                    <tbody>
+                                    <tr>
+                                      <td>
+                                        <div class="input-group">
+                                          <span class="input-group-prepend"><label class="input-group-text"><i class="icofont icofont-mobile-phone"></i></label></span>
+                                          <input type="text" class="form-control" value="(0123) - 4567891" placeholder="Mobile Number">
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <div class="input-group">
+                                          <span class="input-group-prepend"><label class="input-group-text"><i class="icofont icofont-social-twitter"></i></label></span>
+                                          <input type="text" class="form-control" value="@codedthemes" placeholder="Twitter Id">
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <div class="input-group">
+                                          <span class="input-group-prepend"><label class="input-group-text"><i class="icofont icofont-social-skype"></i></label></span>
+                                          <input type="email" class="form-control" value="codedthemes.demo" placeholder="Skype Id">
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <div class="input-group">
+                                          <span class="input-group-prepend"><label class="input-group-text"><i class="icofont icofont-earth"></i></label></span>
+                                          <input type="text" class="form-control" value="www.demo.com" placeholder="website">
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                              <!-- end of table col-lg-6 -->
+                            </div>
+                            <!-- end of row -->
+                            <div class="text-center">
+                              <a href="javascript:;" class="btn btn-primary btn-sm waves-effect waves-light m-r-20">Save</a>
+                              <a href="javascript:;" id="edit-cancel" class="btn btn-default waves-effect" (click)="toggleEditProfile()">Cancel</a>
+                            </div>
+                          </div>
+                          <!-- end of edit info -->
+                        </div>
+                        <!-- end of col-lg-12 -->
+                      </div>
+                      <!-- end of row -->
+                    </div>
+                    <!-- end of edit-info -->
+                  </div>
+                  <!-- end of card-body -->
+                </div>
+                <!-- personal card end-->
+              </div>
+            </ng-template>
+          </ngb-tab>
+<!-- ========End Personal Infomation tab=========== -->
+
+<!-- ============ Reviews tab=========== -->
+          <ngb-tab title="Reviews">
+            <ng-template ngbTabContent>
+              <div [@fadeInOutTranslate] class="m-t-15">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="card-header-text">Review</h5>
+                  </div>
+                  <!-- ==========statistics========== -->
+                  <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-md-12 col-xl-4">
+                            <div class="card widget-statstic-card">
+                              <div class="card-header">
+                                <div class="card-header-left">
+                                  <h5>Statistics</h5>
+                                  <p class="p-t-10 m-b-0 text-c-blue">Completed missing word Quize</p>
+                                </div>
+                              </div>
+                              <div class="card-block">
+                                <i class="icofont icofont-presentation-alt st-icon bg-c-blue"></i>
+                        
+                                <div class="text-left">
+                                  <h3 class="d-inline-block">5</h3>
+                                  <i class="icofont icofont-long-arrow-up f-30 text-c-green"></i>
+                                </div>
+                        
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Statistics card end -->
+                          <!-- Statistics card start -->
+                          <div class="col-md-6 col-xl-4">
+                            <div class="card widget-statstic-card">
+                              <div class="card-header">
+                                <div class="card-header-left">
+                                  <h5>Passed quize</h5>
+                                  <p class="p-t-10 m-b-0 text-c-green">Total number of Quizes above 60%</p>
+                                </div>
+                              </div>
+                              <div class="card-block">
+                                <i class="icofont icofont-users-social st-icon bg-c-green txt-lite-color"></i>
+                        
+                                <div class="text-left">
+                                  <h3 class="d-inline-block">4</h3>
+                                  <i class="icofont icofont-long-arrow-down text-c-green f-30 "></i>
+                                  <span class="f-right">90%</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Statistics card end -->
+                          <!-- Statistics card start -->
+                          <div class="col-md-6 col-xl-4">
+                            <div class="card widget-statstic-card">
+                              <div class="card-header">
+                                <div class="card-header-left">
+                                  <h5>Failed quize</h5>
+                                  <p class="p-t-10 m-b-0 text-c-yellow">Total number of Quizes above 60%</p>
+                                </div>
+                              </div>
+                              <div class="card-block">
+                                <i class="icofont icofont-chart-line st-icon bg-c-yellow"></i>
+                                <div class="text-left">
+                                  <h3 class="d-inline-block">1</h3>
+                                  <i class="icofont icofont-long-arrow-up text-c-green f-30 "></i>
+                                  <span class="f-right">10%</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Statistics card end -->
+                        
+                    </div>
+                  </div>
+                  <!-- ==========End statistics========== -->
+
+                    <!-- browser Start -->
+                    <div class="col-lg-12">              
+                        <app-card [title]="'Browser Stats'">
+                            <div class="row">
+                                <div class="col-lg-12 col-xl-12">
+                                  <div class="table-responsive">
+                                    <table class="table m-0" datatable [dtOptions]="dtOptions">
+                                      <thead>
+                                          <tr>
+                                            <th>#</th>
+                                            <th>Quize Name</th>
+                                            <th>Subject</th>
+                                            <th>Grade</th>
+                                            <th>Marks</th>
+                                            <th>Action</th>
+                                          </tr>
+                                          </thead>
+                                      <tbody> 
+                                      <tr>
+                                          <th scope="row">1</th>
+                                          <td>How to cultivate</td>
+                                          <td>Angricaltural Sciences</td>
+                                          <td>Grade 10</td>
+                                          <td>
+                                              <button class="btn bg-c-blue btn-round float-center btn-browser btn-sm ">69%</button>
+                                          </td>
+                                          <td>
+                                            <a type="button" class="btn-sm btn-primary">
+                                                <i class="icofont {{ editProfileIcon }}"></i>Review
+                                            </a>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>How to cultivate</td>
+                                            <td>Angricaltural Sciences</td>
+                                            <td>Grade 10</td>
+                                            <td>
+                                                <button class="btn bg-c-green btn-round float-center btn-browser btn-sm ">80%</button>
+                                            </td>
+                                            <td>
+                                                <a type="button" class="btn-sm btn-primary">
+                                                    <i class="icofont {{ editProfileIcon }}"></i>Review
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>How to cultivate</td>
+                                            <td>Angricaltural Sciences</td>
+                                            <td>Grade 10</td>
+                                            <td>
+                                                <button class="btn bg-c-yellow btn-round float-center btn-browser btn-sm ">50%</button>
+                                            </td>
+                                            <td>
+                                                <a type="button" class="btn-sm btn-primary">
+                                                    <i class="icofont {{ editProfileIcon }}"></i>Review
+                                                </a>
+                                            </td>
+                                        </tr>                               
+                                    
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                                <!-- end of table col-lg-12 -->
+                              </div>
+                        </app-card>
+                    </div>
+                    <!-- browser End -->
+
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+<!-- ============ Reviews tab=========== -->
+        </ngb-tabset>
+      </div>
+    </div>
+  </div>
+  
