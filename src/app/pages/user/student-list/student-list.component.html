@@ -5,16 +5,16 @@
         <ngb-tabset>
 
 <!-- ============Personal Infomation tab=========== -->
-          <ngb-tab title="Students List">
+          <ngb-tab title="Users List">
             <ng-template ngbTabContent>
               <div [@fadeInOutTranslate] class="m-t-15">
                 <!-- personal card start -->
                 <div class="card">
                   <div class="card-header">
                     <!-- <h5 class="card-header-text">About Me</h5> -->
-                    <!-- <button id="edit-btn" type="button" class="btn btn-sm btn-primary waves-effect waves-light f-right" (click)="toggleEditProfile()">
-                      <i class="icofont {{ editProfileIcon }}"></i>
-                    </button> -->
+                    <button id="edit-btn" type="button" class="btn btn-sm btn-primary waves-effect waves-light f-right" (click)="open_student_modal()">
+                      <i class="icofont {{ editProfileIcon }}">Add user</i>
+                    </button>
                   </div>
                   <div class="card-body">
                     <div class="view-info" *ngIf="editProfile">
@@ -28,20 +28,26 @@
                                     <thead>
                                         <tr>
                                           <th>#</th>
-                                          <th>Username</th>
-                                          <th>Name</th>
-                                          <th>Grade</th>
+                                          <th>Full Name</th>
+                                          <th>ID Number</th>
+                                          <th>Gender</th>
+                                          <th>Phone</th>
+                                          <th>Address</th>
+                                          <th>Email</th>
                                           <th>Action</th>
                                         </tr>
                                         </thead>
                                     <tbody> 
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Ravhugoni</td>
-                                        <td>Londotani Daniel</td>
-                                        <td>Grade 8</td>
+                                    <tr *ngFor="let user of Users; let i = index">
+                                        <th scope="row">{{i + 1}}</th>
+                                        <td>{{user.fullName}}</td>
+                                        <td>{{user.idNumber}}</td>
+                                        <td>{{user.gender}}</td>
+                                        <td>{{user.phone}}</td>
+                                        <td>{{user.address}}</td>
+                                        <td>{{user.email}}</td>
                                         <td>
-                                            <a type="button" (click)="toggleEditProfile()" style="margin: 5px;">
+                                            <a type="button" (click)="open_student_modal(user.usersID)" style="margin: 5px;">
                                                 <i class="icofont {{ editProfileIcon }} btn-sm btn-primary"></i>
                                             </a>
                                             <a type="button" (click)="toggleEditProfile()" style="margin: 5px;">
@@ -51,24 +57,7 @@
                                                 <i class="icofont {{ deleteIcon }} btn-sm btn-danger"></i>
                                             </a>
                                         </td>
-                                    </tr> 
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>Grade 9</td>
-                                        <td> 
-                                            <a type="button" (click)="toggleEditProfile()" style="margin: 5px;">
-                                                <i class="icofont {{ editProfileIcon }} btn-sm btn-primary"></i>
-                                            </a>
-                                            <a type="button" (click)="toggleEditProfile()" style="margin: 5px;">
-                                                <i class="icofont {{ viewIcon }} btn-sm btn-primary"></i>
-                                            </a>
-                                            <a type="button" (click)="toggleEditProfile()" style="margin: 5px;">
-                                                <i class="icofont {{ deleteIcon }} btn-sm btn-danger"></i>
-                                            </a>
-                                        </td>
-                                    </tr>                                 
+                                    </tr>                                
                                     </tbody>
                                   </table>
                                 </div>
@@ -84,124 +73,6 @@
                       <!-- end of row -->
                     </div>
                     <!-- end of view-info -->
-                    <div class="edit-info" *ngIf="!editProfile">
-                      <div class="row">
-                        <div class="col-lg-12">
-                          <div class="general-info">
-                            <div class="row">
-                              <div class="col-lg-6">
-                                <div class="table-responsive">
-                                  <table class="table">
-                                    <tbody>
-                                    <tr>
-                                      <td>
-                                        <div class="input-group">
-                                          <span class="input-group-prepend"><label class="input-group-text"><i class="icofont icofont-user"></i></label></span>
-                                          <input type="text" class="form-control" placeholder="Full Name" value="Josephine Villa">
-                                        </div>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <div class="form-radio">
-                                          <div class="group-add-on">
-                                            <div class="radio radiofill radio-inline">
-                                              <label>
-                                                <input type="radio" name="radio"><i class="helper"></i> Male
-                                              </label>
-                                            </div>
-                                            <div class="radio radiofill radio-inline">
-                                              <label>
-                                                <input type="radio" name="radio" checked><i class="helper"></i> Female
-                                              </label>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <input id="dropper-default" class="form-control" type="text" value="October 25th, 1990" placeholder="Select Your Birth Date" />
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <select id="hello-single" class="form-control">
-                                          <option value="">---- Marital Status ----</option>
-                                          <option value="married">Married</option>
-                                          <option value="single" selected>Single</option>
-                                          <option value="unmarried">Unmarried</option>
-                                        </select>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <div class="input-group">
-                                          <span class="input-group-prepend"><label class="input-group-text"><i class="icofont icofont-location-pin"></i></label></span>
-                                          <input type="text" class="form-control" placeholder="Address" value="New York, USA">
-                                        </div>
-                                      </td>
-                                    </tr>
-                                    </tbody>
-                                  </table>
-                                </div>
-                              </div>
-                              <!-- end of table col-lg-6 -->
-                              <div class="col-lg-6">
-                                <div class="table-responsive">
-                                  <table class="table">
-                                    <tbody>
-                                    <tr>
-                                      <td>
-                                        <div class="input-group">
-                                          <span class="input-group-prepend"><label class="input-group-text"><i class="icofont icofont-mobile-phone"></i></label></span>
-                                          <input type="text" class="form-control" value="(0123) - 4567891" placeholder="Mobile Number">
-                                        </div>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <div class="input-group">
-                                          <span class="input-group-prepend"><label class="input-group-text"><i class="icofont icofont-social-twitter"></i></label></span>
-                                          <input type="text" class="form-control" value="@codedthemes" placeholder="Twitter Id">
-                                        </div>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <div class="input-group">
-                                          <span class="input-group-prepend"><label class="input-group-text"><i class="icofont icofont-social-skype"></i></label></span>
-                                          <input type="email" class="form-control" value="codedthemes.demo" placeholder="Skype Id">
-                                        </div>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <div class="input-group">
-                                          <span class="input-group-prepend"><label class="input-group-text"><i class="icofont icofont-earth"></i></label></span>
-                                          <input type="text" class="form-control" value="www.demo.com" placeholder="website">
-                                        </div>
-                                      </td>
-                                    </tr>
-                                    </tbody>
-                                  </table>
-                                </div>
-                              </div>
-                              <!-- end of table col-lg-6 -->
-                            </div>
-                            <!-- end of row -->
-                            <div class="text-center">
-                              <a href="javascript:;" class="btn btn-primary waves-effect waves-light m-r-20">Save</a>
-                              <a href="javascript:;" id="edit-cancel" class="btn btn-default waves-effect" (click)="toggleEditProfile()">Cancel</a>
-                            </div>
-                          </div>
-                          <!-- end of edit info -->
-                        </div>
-                        <!-- end of col-lg-12 -->
-                      </div>
-                      <!-- end of row -->
-                    </div>
-                    <!-- end of edit-info -->
                   </div>
                   <!-- end of card-body -->
                 </div>

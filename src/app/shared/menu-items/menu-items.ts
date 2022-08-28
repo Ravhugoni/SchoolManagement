@@ -100,9 +100,9 @@ const MENUITEMS = [
     label: 'Users And Map',
     main: [
       {
-        state: 'Students',
+        state: 'Users',
         short_label: 'S',
-        name: 'Students',
+        name: 'Users',
         type: 'link',
         icon: 'ti-user'
       },

@@ -7,7 +7,7 @@ const routes: Routes = [
     path: '',
     component: StudentListComponent,
     data: {
-      breadcrumb: 'Students List',
+      breadcrumb: 'Users List',
       icon: 'icofont-user bg-c-green',
       breadcrumb_caption: 'Lorem Ipsum Dolor Sit Amet, Consectetur Adipisicing Elit - About Us',
       status: true

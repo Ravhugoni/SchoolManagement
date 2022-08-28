@@ -1,0 +1,137 @@
+<div class="modal-content">
+
+    <div class="modal-header" id="kt_modal_create_api_key_header">
+  
+      <h2 *ngIf="usersID==''">New User</h2>
+      <h2 *ngIf="usersID!=''">Edit User</h2>
+      <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+  
+        <span class="svg-icon svg-icon-1" (click)="close()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)"
+              fill="currentColor"></rect>
+            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor">
+            </rect>
+          </svg>
+        </span>
+  
+      </div>  </div>
+  
+    <form id="kt_modal_create_api_key_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" [formGroup]="User" (submit)="save()">
+  
+      <div class="modal-body py-10 px-lg-17">
+  
+        <div class="scroll-y me-n7 pe-7" id="kt_modal_create_api_key_scroll"
+          style="max-height: 446px;">
+  
+          <div class="row">
+            <div class="col-lg-4 fv-row fv-plugins-icon-container">
+                <label class="required fs-5 fw-bold mb-2">First Name</label>
+                <input type="text" class="form-control form-control-solid" placeholder="Your First Name"
+                  formControlName="firstName">
+                <div class="fv-plugins-message-container invalid-feedback active">
+                  <div>API name is required</div>
+                </div>
+              </div>
+              
+              <div class="col-lg-4 fv-row fv-plugins-icon-container">
+                <label class="required fs-5 fw-bold mb-2">Middle Name</label>
+                <input type="text" class="form-control form-control-solid" placeholder="Your First Name"
+                  formControlName="middleName">
+                <div class="fv-plugins-message-container invalid-feedback active">
+                  <div>API name is required</div>
+                </div>
+              </div>  
+      
+              <div class="col-lg-4 fv-row fv-plugins-icon-container">
+      
+                <label class="required fs-5 fw-bold mb-2">Last Name</label>
+                <input type="text" class="form-control form-control-solid" placeholder="Your Last Name"
+                  formControlName="LastName">
+                <div class="fv-plugins-message-container invalid-feedback">
+                  <div>API name is required</div></div>
+              </div>
+    
+          </div><br>
+
+          <div class="row">
+            <div class="col-lg-8 mb-5 fv-row fv-plugins-icon-container">
+                <label class="required fs-5 fw-bold mb-2">ID Number</label>
+                <input type="text" class="form-control form-control-solid" placeholder="Your ID Number"
+                  formControlName="idNumber">
+                <div class="fv-plugins-message-container invalid-feedback">
+                  <div>API name is required</div></div>
+              </div>
+    
+              <div class="col-lg-4 mb-5 fv-row fv-plugins-icon-container">
+                <label class="required fs-5 fw-bold mb-2">Gender</label>
+                  <select class="form-select form-control" formControlName="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <div class="fv-plugins-message-container invalid-feedback">
+                  <div>API name is required</div></div>
+              </div>
+          </div>
+
+         <div class="row">
+            <div class=" col-lg-6 mb-5 fv-row fv-plugins-icon-container">
+                <label class="required fs-5 fw-bold mb-2">Phone</label>
+                <input type="text" class="form-control form-control-solid" placeholder="Your +27**********"
+                  formControlName="phone">
+                <div class="fv-plugins-message-container invalid-feedback">
+                  <div>API name is required</div></div>
+              </div>
+    
+              <div class="col-lg-6 mb-5 fv-row fv-plugins-icon-container">
+                <label class="required fs-5 fw-bold mb-2">Email</label>
+                <input type="text" class="form-control form-control-solid" placeholder="Email"
+                autocomplete="off"  formControlName="email">
+                <div class="fv-plugins-message-container invalid-feedback">
+                  <div>API name is required</div></div>
+              </div>
+         </div>
+
+         <div class="row">
+            <div class="col-lg-4 mb-5 fv-row fv-plugins-icon-container">
+                <label class="required fs-5 fw-bold mb-2">Role</label>
+                <select class="form-select form-control" formControlName="roleID">
+                    <option>Select Roles</option>
+                  <option  *ngFor="let role of roleData; let i = index" [ngValue]="role.roleID">
+                    {{role.roleName}}
+                  </option>
+                </select>
+                <div class="fv-plugins-message-container invalid-feedback">
+                  <div>API name is required</div></div>
+              </div>
+
+              <div class="col-lg-8 mb-5 fv-row fv-plugins-icon-container">
+                <label class="required fs-5 fw-bold mb-2">Address</label>
+                <textarea type="text" class="form-control form-control-solid" placeholder="Your address"
+                  formControlName="address"></textarea>
+                <div class="fv-plugins-message-container invalid-feedback">
+                  <div>API name is required</div></div>
+              </div>
+         </div>
+
+        </div>
+  
+      </div>
+  
+      <div class="modal-footer flex-center">
+  
+        <button *ngIf="usersID==''" type="reset" id="kt_modal_create_api_key_cancel" class="btn btn-light me-3">Discard</button>
+  
+        <button type="submit" id="kt_modal_create_api_key_submit" class="btn btn-primary">
+          <span class="indicator-label">Submit</span>
+          <!-- <span class="indicator-progress">Please wait... -->
+            <!-- <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span> -->
+        </button>
+  
+      </div>
+  
+      <div></div>
+    </form>
+  
+  </div>
+  

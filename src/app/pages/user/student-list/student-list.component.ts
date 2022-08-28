@@ -1,5 +1,8 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { StudentListService } from './student-list.service';
+import { StudentModalComponent } from './student-modal/student-modal.component';
 
 @Component({
   selector: 'app-student-list',
@@ -41,9 +44,10 @@ export class StudentListComponent implements OnInit {
   public sortBy = '';
   public sortOrder = 'desc';
   profitChartOption: any;
+  TempUsers: any;
+  Users: any;
 
-  constructor() {
-  }
+  constructor(private studentListService: StudentListService, public modalService: NgbModal) { }
 
   ngOnInit() {
     this.dtOptions = {
@@ -51,6 +55,18 @@ export class StudentListComponent implements OnInit {
       pageLength: 5,
       processing: true
     };
+    
+    this.studentListService.GetUsers().subscribe(res => {
+      this.TempUsers = res;
+      this.Users = this.TempUsers.results
+    });
+  }
+
+  open_student_modal(usersID='') {
+
+    const modalRef = this.modalService.open(StudentModalComponent, { size: "xl" });
+    modalRef.componentInstance.usersID=usersID;
+    
   }
 
   toggleEditProfile() {
